@@ -8,3 +8,8 @@ class LoadedWordEvent extends WordsEvent {
   @override
   List<Object> get props => [];
 }
+
+class LoadedSearchWordEvent extends WordsEvent {
+  @override
+  List<Object> get props => [];
+}

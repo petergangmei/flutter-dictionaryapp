@@ -2,6 +2,8 @@ part of 'words_bloc.dart';
 
 abstract class WordsState extends Equatable {
   const WordsState();
+
+  
 }
 
 class WordsLoadingState extends WordsState {
@@ -10,7 +12,7 @@ class WordsLoadingState extends WordsState {
 }
 
 class WordsLoadedState extends WordsState {
-  WordsLoadedState(this.words);
+  const WordsLoadedState(this.words);
   final List<WordModel> words;
   @override
   List<Object> get props => [words];
@@ -21,4 +23,15 @@ class WordsLoadedErrorState extends WordsState {
   final String error;
   @override
   List<Object> get props => [error];
+}
+
+class WordSearchingState extends WordsState{
+  @override
+  List<Object> get props => [];
+}
+class WordSearchLoadedState extends WordsState{
+  const WordSearchLoadedState(this.words);
+  final List<WordModel> words;
+  @override
+  List<Object> get props => [words];
 }

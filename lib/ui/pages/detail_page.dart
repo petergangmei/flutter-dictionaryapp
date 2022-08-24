@@ -8,6 +8,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(title: Text(e.englishWord)),
       body: Container(
         padding: const EdgeInsets.all(20),
@@ -42,36 +43,14 @@ class DetailPage extends StatelessWidget {
                     style: const TextStyle(color: Colors.black),
                   ),
                 ),
+                
               ],
             ),
-            const SizedBox(height: 10),
-            Row(
-              children: [
-                Text(
-                  e.exp2,
-                  style: const TextStyle(color: Colors.black),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Row(
-              children: [
-                Text(
-                  e.exp3,
-                  style: const TextStyle(color: Colors.black),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Row(
-              children: [
-                Text(
-                  e.exp4,
-                  style: const TextStyle(color: Colors.black),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 40,),
+            Row(children:  [
+               Text('contributed by $e.author')
+            ],)
+          
           ]),
         ),
       ),

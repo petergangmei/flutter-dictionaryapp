@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:ruangmei_dictionary/data/model/words_model.dart';
@@ -18,6 +19,17 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
       } catch (e) {
         emit(WordsLoadedErrorState(e.toString()));
       }
+
     });
+
+    on<LoadedSearchWordEvent>(((event, emit) async{
+      emit(WordsLoadingState());
+      try {
+        final words = await _wordRepository.wordSearch('l');
+        emit(WordSearchLoadedState(words));
+      } catch (e) {
+        emit(WordsLoadedErrorState(e.toString()));
+      }
+    }));
   }
 }

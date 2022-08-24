@@ -2,7 +2,7 @@
 //
 //     final wordModel = wordModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
+// import 'package:meta/meta.dart';
 import 'dart:convert';
 
 List<WordModel> wordModelFromJson(String str) =>

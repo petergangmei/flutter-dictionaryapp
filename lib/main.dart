@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ruangmei_dictionary/ui/home_page.dart';
+import 'package:ruangmei_dictionary/ui/pages/home_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'data/reponsitory.dart';
 
@@ -18,11 +18,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
       ),
       home: RepositoryProvider(
         create: (context) => WordRepository(),
-        child: const HomePage(),
+        child:  HomePage(),
       ),
     );
   }
