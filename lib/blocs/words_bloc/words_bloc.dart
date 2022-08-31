@@ -11,6 +11,30 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
   final WordRepository _wordRepository;
 
   WordsBloc(this._wordRepository) : super(WordsLoadingState()) {
+    on<WordSearchEvent>(((event, emit) async {
+      // ignore: prefer_is_empty
+      if (event.keyword.length <= 0) {
+        emit(WordsLoadingState());
+        try {
+          final words = await _wordRepository.getWords();
+          emit(WordsLoadedState(words));
+        } catch (e) {
+          emit(WordsLoadedErrorState(e.toString()));
+        }
+      } else {
+        emit(WordsLoadingState());
+        print(event.keyword);
+        try {
+          print('word loaded');
+          final words = await _wordRepository.wordSearch(event.keyword);
+          emit(WordsLoadedState(words));
+        } catch (e) {
+          print('word loading error');
+          emit(WordsLoadedErrorState(e.toString()));
+        }
+      }
+    }));
+
     on<LoadedWordEvent>((event, emit) async {
       emit(WordsLoadingState());
       try {
@@ -19,17 +43,7 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
       } catch (e) {
         emit(WordsLoadedErrorState(e.toString()));
       }
-
     });
 
-    on<LoadedSearchWordEvent>(((event, emit) async{
-      emit(WordsLoadingState());
-      try {
-        final words = await _wordRepository.wordSearch('l');
-        emit(WordSearchLoadedState(words));
-      } catch (e) {
-        emit(WordsLoadedErrorState(e.toString()));
-      }
-    }));
   }
 }

@@ -47,8 +47,8 @@ class DetailPage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 40,),
-            Row(children:  [
-               Text('contributed by $e.author')
+            Row(children:  const [
+               Text('')
             ],)
           
           ]),

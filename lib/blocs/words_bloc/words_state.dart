@@ -25,13 +25,3 @@ class WordsLoadedErrorState extends WordsState {
   List<Object> get props => [error];
 }
 
-class WordSearchingState extends WordsState{
-  @override
-  List<Object> get props => [];
-}
-class WordSearchLoadedState extends WordsState{
-  const WordSearchLoadedState(this.words);
-  final List<WordModel> words;
-  @override
-  List<Object> get props => [words];
-}
