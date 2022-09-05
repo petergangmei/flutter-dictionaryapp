@@ -64,7 +64,7 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                
+
                 //loard words -------------------------------
                 loadWords(),
               ],
@@ -76,8 +76,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-
-// word search results -------------------------------------
+// Load words -------------------------------------
 loadWords() {
   return Expanded(
     child: BlocBuilder<WordsBloc, WordsState>(
@@ -87,7 +86,7 @@ loadWords() {
             child: CircularProgressIndicator(),
           );
         }
-        if (state is WordsLoadedErrorState){
+        if (state is WordsLoadedErrorState) {
           return const Text('Loaded Error');
         }
         if (state is WordsLoadedState) {
@@ -113,8 +112,8 @@ loadWords() {
                       children: [
                         ListTile(
                           leading: const Icon(Icons.add),
-                          title: Text(wordList[index].nativeWord),
-                          subtitle: Text(wordList[index].englishWord),
+                          title: Text(wordList[index].englishWord),
+                          subtitle: Text(wordList[index].m1),
                         ),
                       ],
                     ),

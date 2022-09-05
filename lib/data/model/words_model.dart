@@ -1,8 +1,3 @@
-// To parse this JSON data, do
-//
-//     final wordModel = wordModelFromJson(jsonString);
-
-// import 'package:meta/meta.dart';
 import 'dart:convert';
 
 List<WordModel> wordModelFromJson(String str) =>
@@ -15,62 +10,54 @@ class WordModel {
   WordModel({
     required this.id,
     required this.englishWord,
-    required this.nativeWord,
-    required this.exp1,
-    required this.exp2,
-    required this.exp3,
-    required this.exp4,
-    required this.partofspeach,
-    required this.lang,
-    required this.author,
-    required this.editor,
-    required this.status,
-    required this.dateAdded,
+    required this.wordType,
+    required this.m1,
+    this.m2,
+    this.m3,
+    this.m4,
+    this.m5,
+    required this.updatedAt,
+    required this.createdAt,
+    required this.contributer,
   });
 
   int id;
   String englishWord;
-  String nativeWord;
-  String exp1;
-  String exp2;
-  String exp3;
-  String exp4;
-  String partofspeach;
-  String lang;
-  String author;
-  String editor;
-  String status;
-  String dateAdded;
+  String wordType;
+  String m1;
+  String? m2;
+  String? m3;
+  String? m4;
+  String? m5;
+  DateTime updatedAt;
+  DateTime createdAt;
+  int contributer;
 
   factory WordModel.fromJson(Map<String, dynamic> json) => WordModel(
         id: json["id"],
-        englishWord: json["englishWord"],
-        nativeWord: json["nativeWord"],
-        exp1: json["exp1"],
-        exp2: json["exp2"],
-        exp3: json["exp3"],
-        exp4: json["exp4"],
-        partofspeach: json["partofspeach"],
-        lang: json["lang"],
-        author: json["author"],
-        editor: json["editor"],
-        status: json["status"],
-        dateAdded: json["date_added"],
+        englishWord: json["english_word"],
+        wordType: json["word_type"],
+        m1: json["m1"],
+        m2: json["m2"],
+        m3: json["m3"],
+        m4: json["m4"],
+        m5: json["m5"],
+        updatedAt: DateTime.parse(json["updated_at"]),
+        createdAt: DateTime.parse(json["created_at"]),
+        contributer: json["contributer"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "englishWord": englishWord,
-        "nativeWord": nativeWord,
-        "exp1": exp1,
-        "exp2": exp2,
-        "exp3": exp3,
-        "exp4": exp4,
-        "partofspeach": partofspeach,
-        "lang": lang,
-        "author": author,
-        "editor": editor,
-        "status": status,
-        "date_added": dateAdded,
+        "english_word": englishWord,
+        "word_type": wordType,
+        "m1": m1,
+        "m2": m2,
+        "m3": m3,
+        "m4": m4,
+        "m5": m5,
+        "updated_at": updatedAt.toIso8601String(),
+        "created_at": createdAt.toIso8601String(),
+        "contributer": contributer,
       };
 }

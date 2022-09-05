@@ -8,49 +8,56 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(title: Text(e.englishWord)),
       body: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(30),
         child: Container(
-          color: Colors.grey[100],
+          color: Colors.white10,
           child: Column(children: [
             Row(
               children: [
                 Text(
                   e.englishWord,
                   style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
+                      fontSize: 22, fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(
                   width: 20,
                 ),
                 Text(
-                  e.nativeWord,
+                  e.wordType,
                   style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.w400),
-                )
+                      fontSize: 15,
+                      fontWeight: FontWeight.w300,
+                      fontStyle: FontStyle.italic),
+                ),
               ],
             ),
             const SizedBox(
-              height: 30,
+              height: 10,
             ),
             Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    e.exp1,
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                ),
-                
-              ],
+              children: [Expanded(child: Text(e.m1))],
             ),
-            const SizedBox(height: 40,),
-            Row(children:  const [
-               Text('')
-            ],)
-          
+            const SizedBox(
+              height: 10,
+            ),
+            Row(children: [Expanded(child: Text(e.m2 ?? ""))]),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(children: [Expanded(child: Text(e.m3 ?? ""))]),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(children: [Expanded(child: Text(e.m4 ?? ""))]),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(children: [Expanded(child: Text(e.m5 ?? ""))]),
+            Row(
+              children: const [Text('')],
+            )
           ]),
         ),
       ),
